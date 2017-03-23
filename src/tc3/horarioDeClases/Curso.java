@@ -42,7 +42,7 @@ public class Curso {
 	}
 
 	private int buscarProfesor(String nombre) {
-		// Busca el nombre pasado por par�metro en la lista.
+		// Busca el nombre pasado por parametro en la lista.
 		// Devuelve -1 si no lo encuentra.
 		int p = profesores.size()-1;
 		while (p > -1 && !profesores.get(p).equals(nombre)) {
@@ -60,7 +60,7 @@ public class Curso {
 
 	public boolean addMateria(String codigo, String nombre) {
 		// Debe verificar que la materia a agregar no exista
-		// (busc�ndola por c�digo) y s�lo entonces debe agregarlo.
+		// (buscandola por codigo) y s�lo entonces debe agregarlo.
 		// Devuelve si pudo o no agregar una nueva materia.
 		boolean res = false;
 		
@@ -73,7 +73,7 @@ public class Curso {
 	}
 
 	private int buscarMateria(String codigo) {
-		// Busca la materia el c�digo pasado por par�metro.
+		// Busca la materia el codigo pasado por parametro.
 		// Devuelve -1 si no la encuentra.
 		int p = materias.size()-1;
 		while (p > -1 && !materias.get(p).getCodigo().equals(codigo)) {
@@ -149,20 +149,26 @@ public class Curso {
 		// 1-3 : T3 - Taller 3
 		// 4-6 : PO - Programacion Orientada a Objetos
 		// (usar la mostrarDia para hacer esta parte)
-		
-		for (int i = 0; i < horario.length-1; i++) {
-			System.out.println(horario);
+		System.out.println(horario.length);
+		System.out.println(horario.);
+		System.out.println(horario[0].length);
+		for(int i=0; i < horario.length; i++){
+			for (int j = 0; j < horario[i].length; j++) {
+				//System.out.println(horario[i].getClass());
+				
+			}
 		}
 	}
 	
 	public void mostrarDia(int dia) {
-		// Debe mostrar por pantalla, din�micamente,
-		// las materias del d�a, agrupando por materia
+		// Debe mostrar por pantalla, dinamicamente,
+		// las materias del dia, agrupando por materia
 		// Ejemplo:
 		// 1-3 : T3 - Taller 3
-		// 4-6 : PO - Programaci�n Orientada a Objetos
-		// Investigar, si no se conoce, t�cnica de
+		// 4-6 : PO - Programacion Orientada a Objetos
+		// Investigar, si no se conoce, tecnica de
 		// "corte de control"
+		
 	}
 
 	private boolean sonLaMisma(Hora hora1, Hora hora2) {
