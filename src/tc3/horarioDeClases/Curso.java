@@ -150,7 +150,7 @@ public class Curso {
 		// 4-6 : PO - Programacion Orientada a Objetos
 		// (usar la mostrarDia para hacer esta parte)
 		System.out.println(horario.length);
-		System.out.println(horario.);
+		System.out.println(horario);
 		System.out.println(horario[0].length);
 		for(int i=0; i < horario.length; i++){
 			for (int j = 0; j < horario[i].length; j++) {
