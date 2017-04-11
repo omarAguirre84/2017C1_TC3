@@ -24,7 +24,7 @@ public class Curso {
 	}
 
 	public String getNombre() {
-		return String.format("%sÂº%sÂº%s", Integer.toString(this.anio, 10), this.cuatrimestre, this.cursada);
+		return String.format("%sº%sº%s", Integer.toString(this.anio, 10), this.cuatrimestre, this.cursada);
 	}
 
 	public boolean addProfesor(String nombre) {
@@ -174,6 +174,12 @@ public class Curso {
 	private boolean sonLaMisma(Hora hora1, Hora hora2) {
 		// Devuelve true o false comparando los valores
 		// de hora1 y hora2.
-		return false;
+		boolean res;
+		if(hora1.equals(null) || hora2.equals(null)){
+			res = hora1 == hora2;
+		}else{
+			res = hora1.equals(hora2);
+		}
+		return res;
 	}
 }
