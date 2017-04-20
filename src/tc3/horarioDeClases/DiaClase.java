@@ -10,8 +10,8 @@ package tc3.horarioDeClases;
  * */
 public enum DiaClase {
 	LUNES("LU"), MARTES("MA"), MIERCOLES("MI"), JUEVES("JU");
-	
 	private String codigo;
+	
 	private DiaClase(String codigo){
 		this.codigo = codigo;
 	}

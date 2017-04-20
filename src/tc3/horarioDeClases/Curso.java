@@ -152,11 +152,10 @@ public class Curso {
 		System.out.println(horario.length);
 		System.out.println(horario[0][0].getProfesor());
 		System.out.println(horario[0].length);
-		for(int i=0; i < horario.length; i++){
-			for (int j = 0; j < horario[i].length; j++) {
-				//System.out.println(horario[i].getClass());
-				
-			}
+		
+		for (int i = 0; i < horario.length; i++) {
+			System.out.println(DiaClase.values()[i].getCodigo() +"-"+ DiaClase.values()[i]);
+			this.mostrarDia(i);
 		}
 	}
 	
@@ -169,6 +168,26 @@ public class Curso {
 		// Investigar, si no se conoce, tecnica de
 		// "corte de control"
 		
+		int i = 0;
+		int priHora = 0;
+		int ultHora = 0;
+		int cont = 0;
+		
+		String codigoAnt = horario[dia][0].getCodigo();
+		String codigoAct=horario[dia][0].getCodigo();;
+		
+		while(i < horario[dia].length) {
+			codigoAnt = horario[dia][i].getCodigo();
+			
+			while(codigoAnt.equals(cont)){
+				codigoAct = horario[dia][i].getCodigo();
+				Materia m = materias.get(this.buscarMateria(codigoAct));
+				System.out.println(HoraClase.values()[i].ordinal()+": "+codigoAct + " - " + m.getNombre());
+				cont++;
+			}
+			
+			i++;
+		}
 	}
 
 	private boolean sonLaMisma(Hora hora1, Hora hora2) {
@@ -178,7 +197,8 @@ public class Curso {
 		if(hora1.equals(null) || hora2.equals(null)){
 			res = hora1 == hora2;
 		}else{
-			res = hora1.equals(hora2);
+			//res = hora1.equals(hora2);
+			res = hora1 == hora2;
 		}
 		return res;
 	}
