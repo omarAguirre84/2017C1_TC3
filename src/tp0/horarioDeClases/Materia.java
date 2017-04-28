@@ -1,4 +1,4 @@
-package tc3.horarioDeClases;
+package tp0.horarioDeClases;
 
 public class Materia {
 	private String codigo;

@@ -1,4 +1,4 @@
-package tc3.horarioDeClases;
+package tp0.horarioDeClases;
 /*
  * Ejemplo de enumerado con atributos.
  * Esto viene muy bien, por ejemplo, para llenar "combos"
@@ -10,8 +10,8 @@ package tc3.horarioDeClases;
  * */
 public enum DiaClase {
 	LUNES("LU"), MARTES("MA"), MIERCOLES("MI"), JUEVES("JU");
-	private String codigo;
 	
+	private String codigo;
 	private DiaClase(String codigo){
 		this.codigo = codigo;
 	}

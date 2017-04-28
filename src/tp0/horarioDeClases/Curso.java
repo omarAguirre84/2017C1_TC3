@@ -1,4 +1,4 @@
-package tc3.horarioDeClases;
+package tp0.horarioDeClases;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -24,7 +24,7 @@ public class Curso {
 	}
 
 	public String getNombre() {
-		return String.format("%sº%sº%s", Integer.toString(this.anio, 10), this.cuatrimestre, this.cursada);
+		return String.format("%s°%s°%s", Integer.toString(this.anio, 10), this.cuatrimestre, this.cursada);
 	}
 
 	public boolean addProfesor(String nombre) {
@@ -135,6 +135,12 @@ public class Curso {
 		if (horario[numdia][h] == null) {
 			horario[numdia][h] = new Hora(codMateria, profesor);
 			pude = true;
+//			System.out.println("******");
+//			System.out.println(dia.toDisplay());
+//			System.out.println(dia.ordinal());
+//			System.out.println("******");
+//			System.out.println("Hora: "+hora);
+			
 		}
 		return pude;
 	}
@@ -149,14 +155,16 @@ public class Curso {
 		// 1-3 : T3 - Taller 3
 		// 4-6 : PO - Programacion Orientada a Objetos
 		// (usar la mostrarDia para hacer esta parte)
-		System.out.println(horario.length);
-		System.out.println(horario[0][0].getProfesor());
-		System.out.println(horario[0].length);
 		
-		for (int i = 0; i < horario.length; i++) {
-			System.out.println(DiaClase.values()[i].getCodigo() +"-"+ DiaClase.values()[i]);
-			this.mostrarDia(i);
-		}
+		int i=0;
+		int cant=0;
+		String anterior = horario[0][i].getCodigo();
+		//mostrarDia(2);
+//		while(i < horario.length){
+//			//System.out.println(DiaClase.values()[j]);
+//			mostrarDia(3);
+//			i++;
+//		}
 	}
 	
 	public void mostrarDia(int dia) {
@@ -167,38 +175,26 @@ public class Curso {
 		// 4-6 : PO - Programacion Orientada a Objetos
 		// Investigar, si no se conoce, tecnica de
 		// "corte de control"
-		
-		int i = 0;
-		int priHora = 0;
-		int ultHora = 0;
-		int cont = 0;
-		
-		String codigoAnt = horario[dia][0].getCodigo();
-		String codigoAct=horario[dia][0].getCodigo();;
-		
-		while(i < horario[dia].length) {
-			codigoAnt = horario[dia][i].getCodigo();
-			
-			while(codigoAnt.equals(cont)){
-				codigoAct = horario[dia][i].getCodigo();
-				Materia m = materias.get(this.buscarMateria(codigoAct));
-				System.out.println(HoraClase.values()[i].ordinal()+": "+codigoAct + " - " + m.getNombre());
-				cont++;
+		try {
+			if(dia <= DiaClase.values().length){
+				int i=0;
+				System.out.println(DiaClase.values()[dia].toDisplay());
+				while(i < horario[dia].length){
+					System.out.println(horario[dia][i].getCodigo());
+					i++;
+				}
 			}
-			
-			i++;
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
 	private boolean sonLaMisma(Hora hora1, Hora hora2) {
-		// Devuelve true o false comparando los valores
-		// de hora1 y hora2.
 		boolean res;
-		if(hora1.equals(null) || hora2.equals(null)){
+		if(hora1 == null || hora2 == null ){
 			res = hora1 == hora2;
 		}else{
-			//res = hora1.equals(hora2);
-			res = hora1 == hora2;
+			res = hora1.equals(hora2);
 		}
 		return res;
 	}
