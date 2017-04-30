@@ -16,56 +16,73 @@ class StackInt {
 	public void push(int dato) {
 		int i = 0;
 		boolean done = false;
-		
+
 		do {
 			if (pila[i] == null) {
 				pila[i] = dato;
 				done = true;
 			}
-//			if (i == maximo-1 && done == false) {
-//				done = true;
-//				System.out.println("no hay lugar");
-//			}
+			if (i == maximo - 1 && done == false) {
+				done = true;
+				System.out.println("no hay lugar para: " + dato);
+			}
 			i++;
-		}while (!done);
+		} while (!done);
 	}
 
 	// segunda version, captura error de pila llena
-	public void push1(int dato) {
+	public void push1(int dato) throws ExcepcionDesbordamiento {
 		int i = 0;
 		boolean done = false;
-		
+
 		do {
-			try {
-				if (pila[i] == null) {
-					pila[i] = dato;
-					done = true;
-				}
-				if (i == maximo - 1 && done == false) {
-					done = true;
-					throw new ExcepcionDesbordamiento("No hay lugar para: " + dato);
-				}
-				i++;
-			} catch (ExcepcionDesbordamiento e) {
-				System.out.println(e.getMessage());
+			if (pila[i] == null) {
+				pila[i] = dato;
+				done = true;
 			}
-		}while (!done);
+			if (i == maximo - 1 && done == false) {
+				done = true;
+				throw new ExcepcionDesbordamiento("No hay lugar para: " + dato);
+			}
+			i++;
+		} while (!done);
 	}
 
 	// tercera version, lanza exception si la pila esta llena
 	public void push2(int dato) throws ArrayIndexOutOfBoundsException {
-		
+		int i = 0;
+		boolean done = false;
+
+		do {
+			if (pila[i] == null) {
+				pila[i] = dato;
+				done = true;
+			}
+			if (i == maximo - 1 && done == false) {
+				done = true;
+				throw new ArrayIndexOutOfBoundsException("Array lleno: " + dato);
+			}
+			i++;
+		} while (!done);
 	}
 
 	public void push3(int dato) throws ArrayIndexOutOfBoundsException {
 		//
 	}
 
-	public int pop() throws ArrayIndexOutOfBoundsException, ExcepcionDesbordamiento {
+	public Integer pop() throws ArrayIndexOutOfBoundsException, ExcepcionDesbordamiento {
 		/**
-		* @throws ExcepcionDesbordamiento se lanza cuando se produzca [...] condición
-		*/
-		return 0;
+		 * @throws ExcepcionDesbordamiento
+		 *             se lanza cuando se produzca [...] condición
+		 */
+		this.tope = actualizarTope();
+		Integer dato = pila[this.tope];
+		
+		if(dato != null){
+			pila[tope]=null;
+		}
+		
+		return dato;
 	}
 
 	public Integer getTope() { // devuelve el tope de la pila
